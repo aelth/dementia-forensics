@@ -46,7 +46,7 @@ General options:
   net start dementiafs
    }}}
     This step is not necessary for 32-bit driver (method 2) because the driver is automatically installed (and removed) by the application.
-    * *Note for 64-bit* - since the file system mini-filter is not signed, you must [http://msdn.microsoft.com/en-us/library/windows/hardware/ff553484(v=vs.85).aspx enable test-signing].
+    * *Note for 64-bit* - since the file system mini-filter is not signed, you must [http://msdn.microsoft.com/en-us/library/windows/hardware/ff553484(v=vs.85).aspx enable test-signing] or choose [http://www.raymond.cc/blog/loading-unsigned-drivers-in-windows-7-and-vista-64-bit-x64/ Disable Driver Signature Enforcement] option when booting Windows.
  # *Run acquisition software* - run memory acquisition software of your choosing. List of memory acquisition software which is supported by _Dementia_ (i.e. whose memory dump can be modified) is available under [Features]. While acquisition software is running, you can see _Dementia_ debug output in [http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx DebugView] or in the attached kernel debugger (if methods 2 or 3 are used), or inside the command window where _Dementia_ was launched (if method 1 is used).
    * *Note for file system mini-filter driver (method 3)* - _Dementia_ must be manually killed (`Ctrl+C`) and the driver must be stopped using the following command before analyzing the image:
    {{{
