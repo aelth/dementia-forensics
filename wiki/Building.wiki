@@ -1,0 +1,29 @@
+#summary Instructions for compiling Dementia
+
+= Caveat =
+
+Unfortunately, current code structure is not very nice and it has not gone a single refactoring since the start of the project. All classes, source files and headers were added without any kind of organization or ease of automated builds in mind.
+
+Code and code structure is completely Visual Studio-oriented and it could be hard to build it with other build system. I haven't tried it, so your mileage may vary.
+
+= Prerequisites =
+
+In order to build Dementia, following packages are needed:
+
+ # [http://msdn.microsoft.com/en-us/library/windows/hardware/gg487428.aspx WDK]
+  To be honest, I'm not quite sure whether it will work with new WDK out of the box. It should work, but since I'm using rather ancient DDK version and didn't have the time to migrate, it might or might not work (let me know).
+ # [http://www.boost.org/ Boost libraries]
+  Any version will do, I have used 1.51. Both headers and libraries are needed.
+
+Additionally, packages below are not necessary, but are highly recomended:
+
+ # Microsoft Visual Studio
+ # [http://www.hollistech.com/Resources/ddkbuild/ddkbuild.htm DDKBuild]
+  DDKBuild is not needed on newer versions of Visual Studio (since they support driver development), but can be very useful if you are using older VS version like me.
+
+= Environment variables =
+
+Two environment variables must be defined:
+ # *WLHBASE* - base of your DDK/WDK directory
+ # *BOOST* - base of your Boost directory
+
