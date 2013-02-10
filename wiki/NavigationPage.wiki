@@ -1,5 +1,6 @@
  * [QuickStart Quick Start]
- * [Introduction Introduction]
  * [Features Features]
+ * [Running Running Dementia]
  * [Building Compiling Code]
+   * [Architecture Dementia Architecture]
  * [Roadmap Dementia Roadmap]
