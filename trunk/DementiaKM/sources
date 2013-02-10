@@ -1,0 +1,35 @@
+# $Id$
+TARGETNAME=DementiaKM
+TARGETPATH=obj
+TARGETTYPE=DRIVER
+
+
+# Create browse info
+#BROWSER_INFO=1
+#BROWSERFILE=<some path>
+
+# Additional defines for the C/C++ preprocessor
+C_DEFINES=$(C_DEFINES)
+
+SOURCES=DementiaKM.cpp \
+		HookEngine.cpp \
+		HideEngine.cpp \
+		ForensicAppDumpDetector.cpp \
+		CrashDumpDetector.cpp \
+		AllocationHider.cpp \
+		FileHider.cpp \
+		GenericHider.cpp \
+		ProcessHider.cpp \
+		DriverHider.cpp \
+		ThreadHider.cpp \
+		ObjectHider.cpp \
+		VadHider.cpp \
+		ControlAreaHider.cpp \
+		SegmentHider.cpp \
+		SymbolEngine.cpp \
+		SymbolWrapper.cpp \
+		SynchronizationProvider.cpp \
+		WinVerProvider.cpp \
+		SortedList.cpp \
+		xde.cpp \
+        drvversion.rc

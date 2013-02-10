@@ -1,0 +1,36 @@
+# $Id$
+TARGETNAME=DementiaFS
+TARGETPATH=obj
+TARGETTYPE=DRIVER
+
+
+# Create browse info
+#BROWSER_INFO=1
+#BROWSERFILE=<some path>
+
+# Additional defines for the C/C++ preprocessor
+C_DEFINES=$(C_DEFINES)
+
+TARGETLIBS= $(TARGETLIBS) \
+            $(WLHBASE)\lib\wlh\i386\fltMgr.lib
+
+SOURCES=DementiaFS.cpp \
+		FileMonitor.cpp \
+		AllocationHiderStub.cpp \
+		ControlAreaHiderStub.cpp \
+		CrashDumpDetectorStub.cpp \
+		DriverHiderStub.cpp \
+		FileHiderStub.cpp \
+		ForensicAppDumpDetectorFS.cpp \
+		GenericHiderStub.cpp \
+		ObjectHiderStub.cpp \
+		ProcessHiderStub.cpp \
+		SegmentHiderStub.cpp \
+		SortedListStub.cpp \
+		SymbolEngineStub.cpp \
+		SymbolWrapperStub.cpp \
+		ThreadHiderStub.cpp \
+		VADHiderStub.cpp \
+		WinVerProviderStub.cpp \
+        drvversion.rc
+AMD64_SOURCES=ProcHandleTableDerefx64.asm
