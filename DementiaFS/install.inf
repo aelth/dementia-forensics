@@ -1,0 +1,87 @@
+;;;
+;;; Dementia FS minifilter
+;;; 	
+;;; Use at your own risk!
+;;;
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = "ActivityMonitor"
+ClassGuid   = {b86dff51-a31e-4bac-b3cf-e8cfe75c9fc2}    ;This value is determined by the Class
+Provider    = %LM%
+DriverVer   = 12/20/2012,0.0.0.1
+
+[DestinationDirs]
+DefaultDestDir				= 12			;%windir%\system32\drivers
+DementiaFS.DriverFiles		= 12            ;%windir%\system32\drivers
+
+;;
+;; Default install sections
+;;
+
+[DefaultInstall]
+OptionDesc          = %ServiceDescription%
+CopyFiles           = DementiaFS.DriverFiles
+
+[DefaultInstall.Services]
+AddService          = %ServiceName%,,DementiaFS.Service
+
+;;
+;; Default uninstall sections
+;;
+
+[DefaultUninstall]
+DelFiles            = DementiaFS.DriverFiles
+
+
+[DefaultUninstall.Services]
+DelService = DementiaFS,0x200      ;Stop service before deleting
+
+;
+; Services Section
+;
+
+[DementiaFS.Service]
+DisplayName      = %ServiceName%
+Description      = %ServiceDescription%
+ServiceBinary    = %12%\%DriverName%.sys        ;%windir%\system32\drivers\
+Dependencies     = "FltMgr"
+ServiceType      = 2                            ;SERVICE_FILE_SYSTEM_DRIVER
+StartType        = 3                            ;SERVICE_DEMAND_START
+ErrorControl     = 1                            ;SERVICE_ERROR_NORMAL
+LoadOrderGroup   = "FSFilter Activity Monitor"
+AddReg           = DementiaFS.AddRegistry
+
+;
+; Registry Modifications
+;
+
+[DementiaFS.AddRegistry]
+HKR,"Instances","DefaultInstance",0x00000000,%DefaultInstance%
+HKR,"Instances\"%Instance1.Name%,"Altitude",0x00000000,%Instance1.Altitude%
+HKR,"Instances\"%Instance1.Name%,"Flags",0x00010001,%Instance1.Flags%
+
+;
+; Copy Files
+;
+
+[DementiaFS.DriverFiles]
+%DriverName%.sys
+
+
+;;
+;; String Section
+;;
+
+[Strings]
+LM						= "Luka Milkovic (luka.milkovic at infigo.hr)"
+ServiceDescription      = "Dementia mini-filter filesystem driver"
+ServiceName             = "DementiaFS"
+DriverName              = "DementiaFS"
+
+;Instances specific information.
+DefaultInstance         = "DementiaFS Instance"
+Instance1.Name          = "DementiaFS Instance"
+Instance1.Altitude      = "367890"
+Instance1.Flags         = 0x0          ; Allow all attachments
+
