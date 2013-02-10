@@ -1,13 +1,11 @@
 #summary Instructions for compiling Dementia
 
 = Caveat =
-
 Unfortunately, current code structure is not very nice and it has not gone a single refactoring since the start of the project. All classes, source files and headers were added without any kind of organization or ease of automated builds in mind.
 
 Code and code structure is completely Visual Studio-oriented and it could be hard to build it with other build system. I haven't tried it, so your mileage may vary.
 
 = Prerequisites =
-
 In order to build Dementia, following packages are needed:
 
  # [http://msdn.microsoft.com/en-us/library/windows/hardware/gg487428.aspx WDK]
@@ -22,8 +20,18 @@ Additionally, packages below are not necessary, but are highly recomended:
   DDKBuild is not needed on newer versions of Visual Studio (since they support driver development), but can be very useful if you are using older VS version like me.
 
 = Environment variables =
-
-Two environment variables must be defined:
+Three environment variables must be defined:
  # *WLHBASE* - base of your DDK/WDK directory
  # *BOOST* - base of your Boost directory
+ # *DDKBUILD_PATH* - path to DDKBuild. This is not necessary if DDKBuild is not used, but then make sure you properly import DementiaFS and DementiaKM projects.
 
+= Code structure =
+Code is organized into 4 projects:
+
+ # *Dementia* - user mode component and "controller" of all other components
+ # *DementiaFS* - file system mini-filter driver
+ # *DementiaKM* - hooking driver and main hiding driver
+ # *MemoryzeUM* - user-mode hiding DLL injected into Memoryze process
+ # *SymbolHelper* - DLL in charge for Microsoft debugging symbols download and parsing
+
+If satisfy all prerequisites and have version of Visual Studio newer than 2008, you should have little or no problems building the code.
