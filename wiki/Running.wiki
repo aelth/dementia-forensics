@@ -1,0 +1,7 @@
+#summary Description of Dementia arguments and hiding methods
+
+= Running Dementia =
+
+This page describes basic command line options and arguments used by _Dementia_, as well as the supported hiding methods.
+
+== Hiding Methods ==
