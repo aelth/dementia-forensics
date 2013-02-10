@@ -11,10 +11,9 @@ If you don't have the time or patience to watch the presentation or read this ma
    * *User-mode hiding* (only _Memoryze_ is currently supported)
    * *Kernel-mode hiding based on hooks*
    * *Kernel-mode hiding based on file system mini-filter driver*
- All three methods are supported on 32-bit systems, while on 64-bit architecture only the last method (file system mini-filter) is supported.
- Running `Dementia.exe` without parameters will list all available options:
-
-{{{
+   All three methods are supported on 32-bit systems, while on 64-bit architecture only the last method (file system mini-filter) is supported.
+   Running `Dementia.exe` without parameters will list all available options:
+   {{{
 Dementia - v1.0 -- Windows memory anti-forensics suite
 Copyright (c) 2012, Luka Milkovic <milkovic.luka at gmail.com> or <luka.milkovic at infigo.hr>
 
@@ -32,15 +31,26 @@ General options:
                         3 - Generic kernel-mode evasion module: Hides kernel level objects related to target process using kernel driver
 
   -a [ --args ] arg     pass specific arguments to the evasion method (use info for method specific help) -- arguments are passed in quotes!
-}}}
-
-  Additional help for a given method can be obtained by issuing the `-i` argument for the given method.
-
-  For example, if the process with the name `calc.exe` must be hidden using second method (kernel module with hooks), this command line must be used:
-{{{
+   }}}
+   Additional help for a given method can be obtained by issuing the `-i` argument for the given method.
+   For example, if the process with the name `calc.exe` must be hidden using second method (kernel module with hooks), this command line must be used:
+   {{{
   Dementia.exe -m 2 -a "-P calc.exe"
-}}}
-  Multiple "objects" (i.e. processes or drivers) can be specified on the command line. For example, command line below shows how to hide process with pid 1234 and driver `HTTP.sys` in addition to `calc.exe` process:
-{{{
+   }}}
+   Multiple "objects" (i.e. processes or drivers) can be specified on the command line. For example, command line below shows how to hide process with pid 1234 and driver `HTTP.sys` in addition to `calc.exe` process:
+   {{{
   Dementia.exe -m 2 -a "-P calc.exe -p 1234 -D HTTP.sys"
-}}}
+   }}}
+    * *Note for file system mini-filter driver (method 3)* - the driver must first be installed by using the `inf` file (_right mouse click->Install_) and then issuing the following command:
+   {{{
+  net start dementiafs
+   }}}
+    This step is not necessary for 32-bit driver (method 2) because the driver is automatically installed (and removed) by the application.
+    * *Note for 64-bit* - since the file system mini-filter is not signed, you must [http://msdn.microsoft.com/en-us/library/windows/hardware/ff553484(v=vs.85).aspx enable test-signing].
+ # *Run acquisition software* - run memory acquisition software of your choosing. List of memory acquisition software which is supported by _Dementia_ (i.e. whose memory dump can be modified) is available under [Features]. While acquisition software is running, you can see _Dementia_ debug output in [http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx DebugView] or in the attached kernel debugger (if methods 2 or 3 are used), or inside the command window where _Dementia_ was launched (if method 1 is used).
+   * *Note for file system mini-filter driver (method 3)* - _Dementia_ must be manually killed (`Ctrl+C`) and the driver must be stopped using the following command before analyzing the image:
+   {{{
+  net stop dementiafs
+   }}}
+    This step is not necessary for 32-bit driver (method 2) because the driver is automatically removed by the application.
+ # *Analyze the dump* - after acquisition process has finished, the output image can be analyzed using any memory analysis application. All specified artifacts should be hidden from the dump.
