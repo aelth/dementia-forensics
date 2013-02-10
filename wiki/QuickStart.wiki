@@ -1,8 +1,12 @@
-#summary One-sentence summary of this page.
+#summary Run Dementia ASAP
 
-= Introduction =
+= Quick Start =
 
-Add your content here.
+If you don't have the time or patience to watch or read the presentation, follow the steps below to have Dementia up and running as quickly as possible.
+
+ # *Download appropriate release* - depending on the architecture you are using (32-bit or 64-bit), choose appropriate release for download from the [Downloads] page.
+ # *Extract the archive contents* - after downloading the appropriate release, contents of the downloaded archive must be extracted to a directory of your choosing.
+ # *Run Dementia* - this is the most involving step. Depending on the
 
 
 = Details =
