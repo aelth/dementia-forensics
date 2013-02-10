@@ -4,7 +4,7 @@
 
 If you don't have the time or patience to watch the presentation or read this manual, follow the steps below to have _Dementia_ up and running as quickly as possible.
 
- # *Prerequisites* - _Dementia_ needs Internet access during its *first start* in order to download necessary kernel symbols (i.e. PDB files) from the Microsoft Symbol Server. Necessary DLLs (`dbghelp.dll` and `symsrv.dll`) are included in the download archive, but it is strongly recommended to obtain new versions of the mentioned DLLs (these DLLs are a part of  [http://msdn.microsoft.com/en-us/windows/hardware/gg463009.aspx Debugging Tools for Windows] package).
+ # *Prerequisites* - _Dementia_ needs Internet access during its *first start* in order to download necessary kernel symbols (i.e. PDB files) from the Microsoft Symbol Server. Necessary DLLs (`dbghelp.dll` and `symsrv.dll`) are included in the download archive, but it is strongly recommended to obtain new versions of the mentioned DLLs (these DLLs are a part of  [http://msdn.microsoft.com/en-us/windows/hardware/gg463009.aspx Debugging Tools for Windows] package). Please be patient while the symbols are being downloaded, since the symbols can be rather large (for example, about 7 MB for Windows 7).
  # *Download appropriate release* - depending on the architecture you are using (32-bit or 64-bit), choose appropriate release for download from the [http://code.google.com/p/dementia-forensics/downloads/list Downloads] page.
  # *Extract the archive contents* - after downloading the appropriate release, contents of the downloaded archive must be extracted to a directory of your choosing.
  # *Run _Dementia_* - this is the most involving step. _Dementia_ has three available hiding methods:
