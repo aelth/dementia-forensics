@@ -34,4 +34,4 @@ Code is organized into 4 projects:
  # *MemoryzeUM* - user-mode hiding DLL injected into Memoryze process
  # *SymbolHelper* - DLL in charge for Microsoft debugging symbols download and parsing
 
-If satisfy all prerequisites and have version of Visual Studio newer than 2008, you should have little or no problems building the code.
+If you satisfy all prerequisites and have version of Visual Studio newer than 2008, you should have little or no problems building the code.
