@@ -1,0 +1,6 @@
+  * [Quick Start](QuickStart.md)
+  * [Features](Features.md)
+  * [Running Dementia](Running.md)
+  * [Compiling Code](Building.md)
+    * [Dementia Architecture](Architecture.md)
+  * [Dementia Roadmap](Roadmap.md)
